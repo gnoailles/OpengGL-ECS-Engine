@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <IncludePath>$(SolutionDir)Dependencies/glfw/$(PlatformTarget)/include;$(SolutionDir)Dependencies/glm/include;$(SolutionDir)Dependencies/glew/include;$(SolutionDir)Dependencies/stb_image;$(SolutionDir)Dependencies/SOIL/include;$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies/glfw/$(PlatformTarget)/lib;$(SolutionDir)Dependencies/glew/lib/Release/$(Platform)/;$(SolutionDir)Dependencies/SOIL/lib/$(PlatformTarget);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>libSOIL.lib;glfw3dll.lib;glew32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(SolutionDir)Dependencies\glfw\$(PlatformTarget)\lib\glfw3.dll $(OutDir) 
+copy /y $(SolutionDir)Dependencies\glew\bin\Release\$(Platform)\glew32.dll $(OutDir)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
