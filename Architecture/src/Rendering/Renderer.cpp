@@ -2,7 +2,7 @@
 
 #include <Rendering/Renderer.h>
 
-#include <Graphics/Window.h>
+#include <Context/Window.h>
 #include <ECS/Managers/ComponentManager.h>
 
 #include <Rendering/RenderableComponent.h>
@@ -39,11 +39,12 @@ void Renderer::InitOpenGL()
 	{
 		LOG(Core::Debug::Log::Info(), "OpenGL Version:" << glGetString(GL_VERSION));
 		glfwSetKeyCallback(m_window, InputSystem::HandleInputs);
-		glfwSetFramebufferSizeCallback(m_window, Graphics::Window::FramebufferSize);
+		glfwSetFramebufferSizeCallback(m_window, Context::Window::FramebufferSize);
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LESS);
 	}
 	else
 	{

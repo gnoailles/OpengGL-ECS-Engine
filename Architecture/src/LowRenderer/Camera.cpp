@@ -1,7 +1,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <LowRenderer/Camera.h>
-#include <Graphics/Window.h>
+#include <Context/Window.h>
 
 using namespace LowRenderer;
 

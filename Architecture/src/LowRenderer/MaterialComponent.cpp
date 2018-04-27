@@ -5,7 +5,8 @@ using namespace LowRenderer;
 MaterialComponent::MaterialComponent(COMPONENT_INIT_PARAMS, Resources::Shader* p_shader, Resources::Texture* p_texture):
 	COMPONENT_INIT(MaterialComponent), 
 	m_ambient(0.5f, 0.5f, 0.5f),
-	m_diffuse(0.5f, 0.5f, 0.5f), 
+	m_diffuse(1.0f, 1.0f, 1.0f),
+//	m_diffuse(1.0f, 0.67f, 0.2f), 
 	m_specular(0.5f, 0.5f, 0.5f), 
 	m_shininess(32.f),
 	m_shader(p_shader), m_texture(p_texture)

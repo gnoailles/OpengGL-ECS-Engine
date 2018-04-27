@@ -54,25 +54,27 @@ bool Model::ParseOBJ(const std::string& p_filePath)
 	{
 		if (p_filePath.substr(p_filePath.size() - 4, 4) == ".obj")
 		{
-			std::ifstream objFile(p_filePath);
-			std::string line;
+			std::ifstream	objFile(p_filePath);
+			std::string		line;
 			if (objFile.is_open())
 			{
 				m_loadedVertices.clear();
 				m_loadedIndices.clear();
 
-				std::vector<vec3f> positions;
-				std::vector<vec2f> textureCoords;
-				std::vector<vec3f> normals;
-				std::vector<unsigned> indices;
-				std::vector<Vertex> vertices;
+				std::vector<vec3f>		positions;
+				std::vector<vec2f>		textureCoords;
+				std::vector<vec3f>		normals;
+				std::vector<unsigned>	indices;
+				std::vector<Vertex>		vertices;
 
 				while (getline(objFile, line))
 				{
 					Utils::trim(line);
-
 					const size_t lineLength = line.length();
-					if (lineLength == 0) continue;
+
+					if (lineLength == 0) 
+						continue;
+
 					if (line[0] == 'v')
 					{
 						std::smatch result;
@@ -81,11 +83,8 @@ bool Model::ParseOBJ(const std::string& p_filePath)
 							std::regex_search(line, result, VERTEX_PATTERN);
 							// 0                  1      2      3
 							// ["v 1.0 2.0 3.0", "1.0", "2.0", "3.0"]
-
 							if (!result.empty())
-							{
 								positions.emplace_back(std::stof(result[1]), std::stof(result[2]), std::stof(result[3]));
-							}
 						}
 						else if (line[1] == 'n')
 						{
@@ -94,9 +93,7 @@ bool Model::ParseOBJ(const std::string& p_filePath)
 							// ["vn 1.0 2.0 3.0", "1.0", "2.0", "3.0"]
 
 							if (!result.empty())
-							{
 								normals.emplace_back(std::stof(result[1]), std::stof(result[2]), std::stof(result[3]));
-							}
 						}
 						else if (line[1] == 't')
 						{
@@ -521,7 +518,7 @@ bool Model::IsInsideTriangle(const vec3f& p_point, const vec3f& p_triangle1, con
 		return false;
 }
 
-inline unsigned Model::GetIndex(const std::string& p_index) const
+unsigned Model::GetIndex(const std::string& p_index) const
 {
 	return std::stoul(p_index) - 1;
 }

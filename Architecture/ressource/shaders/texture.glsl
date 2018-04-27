@@ -54,6 +54,8 @@ out vec4 color;
 
 void main()
 {
+	
+
 	// ambient
     vec3 ambient = u_light.ambient * u_material.ambient;
 
@@ -62,7 +64,7 @@ void main()
     vec3 lightDir = normalize(u_light.position - v_pos);
 
     float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = u_light.diffuse * diff * vec3(texture(u_texture, v_texCoord));
+    vec3 diffuse = u_light.diffuse * diff * vec3(texture(u_texture, v_texCoord)) * u_material.diffuse;
 
 	 // specular
     vec3 viewDir = normalize(u_viewPos - v_pos);

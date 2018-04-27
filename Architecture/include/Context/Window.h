@@ -9,7 +9,7 @@ namespace LowRenderer {
 	class Camera;
 }
 
-namespace Graphics
+namespace Context
 {
 	class Window
 	{

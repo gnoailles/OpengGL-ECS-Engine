@@ -1,9 +1,9 @@
 #include <vld.h>
 #include <ECS/Engine.h>
-#include <Graphics/Window.h>
+#include <Context/Window.h>
 
 
-using namespace Graphics;
+using namespace Context;
 
 ECS::ECSEngine* ECS::ECS_Engine;
 

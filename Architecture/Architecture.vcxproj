@@ -165,11 +165,11 @@
     <ClCompile Include="src\Core\DataStructure\Graph.cpp" />
     <ClCompile Include="src\Resources\Shader.cpp" />
     <ClCompile Include="src\Resources\Texture.cpp" />
-    <ClCompile Include="src\Graphics\Window.cpp" />
+    <ClCompile Include="src\Context\Window.cpp" />
     <ClCompile Include="src\Inputs\InputSystem.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Physics\Transform.cpp" />
-    <ClCompile Include="src\Utils\stb_image.cpp" />
+    <ClCompile Include="src\vendor\stb_image.cpp" />
     <ClCompile Include="src\Utils\Timer.cpp" />
     <ClCompile Include="src\Resources\Buffers\VertexBuffer.cpp" />
     <ClCompile Include="src\Resources\Buffers\VertexArray.cpp" />
@@ -196,7 +196,7 @@
     <ClInclude Include="include\Resources\Buffers\IndexBuffer.h" />
     <ClInclude Include="include\Resources\Shader.h" />
     <ClInclude Include="include\Resources\Texture.h" />
-    <ClInclude Include="include\Graphics\Window.h" />
+    <ClInclude Include="include\Context\Window.h" />
     <ClInclude Include="include\Inputs\InputSystem.h" />
     <ClInclude Include="include\Core\Debug\Log.h" />
     <ClInclude Include="include\Core\Maths\mat4.h" />

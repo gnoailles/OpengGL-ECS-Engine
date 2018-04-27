@@ -109,7 +109,7 @@ void Transform::SetOrientation(const glm::vec3& p_rotation)
 void Transform::LookAt(const glm::vec3& p_targetPosition)
 {
 	m_rotation = glm::toQuat(glm::lookAt(m_position, p_targetPosition, Up()));
-	m_orientation = glm::eulerAngles(m_rotation);
+	m_orientation = glm::degrees(eulerAngles(m_rotation));
 }
 
 
@@ -195,7 +195,7 @@ const glm::mat4 Transform::GetRotation()
 {
 	if (m_hasChanged)
 	{
-		m_rotation = glm::quat(m_orientation);
+		m_rotation = glm::quat(glm::radians(m_orientation));
 	}
 	return glm::toMat4(m_rotation);
 }
